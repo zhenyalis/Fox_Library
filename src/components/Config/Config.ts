@@ -4,7 +4,7 @@ export const BasicTheme = {
     generalRed: "#FF5D4F",
     gray: "#616161",
     secondaryGrey: "#B5B5B5 ",
-    c: "#000000",
+    black: "#000000",
     generalBlue: "#85C8EE",
     secondaryBlue: "#D3EBF9",
     white: "#FFFFFF",

@@ -9,7 +9,7 @@ import {
   LineImage,
   LinksManagement,
   BlockManagement,
-} from "./styled";
+} from "./style";
 import { config } from "../Config/ConfigText";
 export const AccountManagementPage = ({ open, close }: any) => {
   const { user, logout } = UserAuth();

@@ -1,8 +1,8 @@
-import React from "react";
 import debounce from "lodash.debounce";
 import { Link } from "react-router-dom";
 import { SearchContext } from "../../../App";
 import { config } from "../../Config/ConfigText";
+import { useState ,useContext,useRef,useCallback} from "react";
 import {
   LogoImages,
   NavigationWrapper,
@@ -18,19 +18,20 @@ import { AccountManagementPage } from "../../AccountManagementPage/index";
 import { ButtonOpenPopup } from "../../../UX/ButtonOpenPopup/ButtonOpenPopup";
 import { ButtonClosedPopup } from "../../../UX/ButtonClosedPopup/ButtonClosedPopup";
 const inputPlaceholderText = "Search by author, title, name";
+
 export const HeaderAllBooksPage = () => {
   const { user } = UserAuth();
-  const [value, setValue] = React.useState("");
-  const [activeUserMenu, setActiveUserMenu] = React.useState(false);
+  const [value, setValue] = useState("");
+  const [activeUserMenu, setActiveUserMenu] = useState(false);
   const checkPopup = activeUserMenu ? (
     <ButtonClosedPopup />
   ) : (
     <ButtonOpenPopup />
   );
   const ToggleUserMenuPopup = () => setActiveUserMenu(!activeUserMenu);
-  const { setSearchValue } = React.useContext(SearchContext);
+  const { setSearchValue } = useContext(SearchContext);
 
-  const inputRef = React.useRef();
+  const inputRef = useRef();
 
   const onClickClear = () => {
     setSearchValue("");
@@ -38,7 +39,7 @@ export const HeaderAllBooksPage = () => {
     inputRef.current.focus();
   };
 
-  const updateSearchValue = React.useCallback(
+  const updateSearchValue = useCallback(
     debounce((str) => {
       setSearchValue(str);
     }, 250),

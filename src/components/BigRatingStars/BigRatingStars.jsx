@@ -1,12 +1,12 @@
-import React from 'react';
+import {useState} from "react"
 import { FaStar } from 'react-icons/fa';
 import '../../styles/stylesGlobal/starRating.css';
 
 
 export const BigRatingStars = () => {
 
-const [rating, setRating] = React.useState(null)
-const [hover, setHover] = React.useState(null)
+const [rating, setRating] = useState(null)
+const [hover, setHover] = useState(null)
 
     return (
         <>

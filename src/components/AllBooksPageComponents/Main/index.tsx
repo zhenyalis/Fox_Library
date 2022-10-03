@@ -1,4 +1,5 @@
-import React from "react";
+import { useState ,useContext,useEffect} from "react";
+
 import {
   BooksContainer,
   MainWrapper,
@@ -13,17 +14,17 @@ import { Skeleton } from "../../Skeleton/Skeleton";
 import { SearchContext } from "../../../App";
 
 export const MainAllBooksPage = () => {
-  const { searchValue, setSearchValue }: any = React.useContext(SearchContext);
-  const [items, setItems] = React.useState<TBooks[]>([]);
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [noOfElement, setnoOfElement] = React.useState(4);
+  const { searchValue, setSearchValue }: any = useContext(SearchContext);
+  const [items, setItems] = useState<TBooks[]>([]);
+  const [isLoading, setIsLoading] =useState(true);
+  const [noOfElement, setnoOfElement] = useState(4);
 
   const slice = items.slice(0, noOfElement);
   const loadMore = () => {
     setnoOfElement(noOfElement + noOfElement);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsLoading(true);
     fetch("https://fox-library-api.herokuapp.com/api/library")
       .then((res) => res.json())
